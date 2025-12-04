@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "../App"; // 注意这里是 .. 不是 .
+import App from "../App"; // 因为你的 App.tsx 在根目录
 
 import "./index.css";
 
