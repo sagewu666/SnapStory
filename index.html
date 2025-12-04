@@ -8,7 +8,7 @@
     />
     <title>SnapStory</title>
 
-    <!-- Tailwind CDN 可以先保留 以后也可以换成本地版本 -->
+    <!-- Tailwind CDN（先用着，之后可以换成本地版本） -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -20,56 +20,56 @@
                 orange: "#F97316",
                 blue: "#3B82F6",
                 green: "#10B981",
-                purple: "#8B5CF6",
-              },
+                purple: "#8B5CF6"
+              }
             },
             fontFamily: {
-              sans: ["Comic Sans MS", "Chalkboard SE", "sans-serif"],
+              sans: ["Comic Sans MS", "Chalkboard SE", "sans-serif"]
             },
             animation: {
               "bounce-slow": "bounce 3s infinite",
-              "pop-in": "popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
+              "pop-in":
+                "popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
               "pulse-glow": "pulseGlow 2s infinite",
               "grab-pop": "grabPop 0.8s ease-out forwards",
-              shake: "shake 0.5s cubic-bezier(.36,.07,.19,.97) both",
+              shake: "shake 0.5s cubic-bezier(.36,.07,.19,.97) both"
             },
             keyframes: {
               popIn: {
                 "0%": { opacity: "0", transform: "scale(0.5)" },
-                "100%": { opacity: "1", transform: "scale(1)" },
+                "100%": { opacity: "1", transform: "scale(1)" }
               },
               pulseGlow: {
                 "0%, 100%": { boxShadow: "0 0 10px #3B82F6" },
-                "50%": { boxShadow: "0 0 25px #3B82F6" },
+                "50%": { boxShadow: "0 0 25px #3B82F6" }
               },
               grabPop: {
                 "0%": {
                   transform: "translate(-50%, -50%) scale(0.5)",
-                  opacity: "0",
+                  opacity: "0"
                 },
                 "50%": {
                   transform: "translate(-50%, -50%) scale(1.2)",
-                  opacity: "1",
+                  opacity: "1"
                 },
                 "100%": {
                   transform: "translate(-50%, -150%) scale(0.8)",
-                  opacity: "0",
-                },
+                  opacity: "0"
+                }
               },
               shake: {
                 "10%, 90%": { transform: "translate3d(-1px, 0, 0)" },
                 "20%, 80%": { transform: "translate3d(2px, 0, 0)" },
                 "30%, 50%, 70%": { transform: "translate3d(-4px, 0, 0)" },
-                "40%, 60%": { transform: "translate3d(4px, 0, 0)" },
-              },
-            },
-          },
-        },
+                "40%, 60%": { transform: "translate3d(4px, 0, 0)" }
+              }
+            }
+          }
+        }
       };
     </script>
 
     <style>
-      /* 滚动条样式 */
       ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -85,6 +85,7 @@
         background: #94a3b8;
       }
       body {
+        margin: 0;
         overscroll-behavior: none;
         background-color: #eff6ff;
         -webkit-tap-highlight-color: transparent;
@@ -116,10 +117,10 @@
   </head>
 
   <body>
-    <!-- 這裡就是 React 要掛載的節點 -->
+    <!-- React 挂载点 -->
     <div id="root"></div>
 
-    <!-- 關鍵：讓 Vite 從這裡載入你的 React 程式入口 -->
+    <!-- 关键：React / Vite 入口 -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
