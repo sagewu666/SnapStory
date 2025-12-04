@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <title>SnapStory</title>
+
+    <!-- Tailwind CDN 可以先保留 以后也可以换成本地版本 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -11,51 +16,60 @@
           extend: {
             colors: {
               brand: {
-                // BLUE THEME RESTORED
-                yellow: '#FBBF24', // Gold (Stars/Coins)
-                orange: '#F97316', // Orange (Secondary Action)
-                blue: '#3B82F6',   // Blue (Primary Brand)
-                green: '#10B981',  // Emerald (Success)
-                purple: '#8B5CF6', // Accent
-              }
+                yellow: "#FBBF24",
+                orange: "#F97316",
+                blue: "#3B82F6",
+                green: "#10B981",
+                purple: "#8B5CF6",
+              },
             },
             fontFamily: {
-              sans: ['Comic Sans MS', 'Chalkboard SE', 'sans-serif'],
+              sans: ["Comic Sans MS", "Chalkboard SE", "sans-serif"],
             },
             animation: {
-              'bounce-slow': 'bounce 3s infinite',
-              'pop-in': 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-              'pulse-glow': 'pulseGlow 2s infinite',
-              'grab-pop': 'grabPop 0.8s ease-out forwards',
-              'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+              "bounce-slow": "bounce 3s infinite",
+              "pop-in": "popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
+              "pulse-glow": "pulseGlow 2s infinite",
+              "grab-pop": "grabPop 0.8s ease-out forwards",
+              shake: "shake 0.5s cubic-bezier(.36,.07,.19,.97) both",
             },
             keyframes: {
               popIn: {
-                '0%': { opacity: '0', transform: 'scale(0.5)' },
-                '100%': { opacity: '1', transform: 'scale(1)' },
+                "0%": { opacity: "0", transform: "scale(0.5)" },
+                "100%": { opacity: "1", transform: "scale(1)" },
               },
               pulseGlow: {
-                '0%, 100%': { boxShadow: '0 0 10px #3B82F6' },
-                '50%': { boxShadow: '0 0 25px #3B82F6' },
+                "0%, 100%": { boxShadow: "0 0 10px #3B82F6" },
+                "50%": { boxShadow: "0 0 25px #3B82F6" },
               },
               grabPop: {
-                '0%': { transform: 'translate(-50%, -50%) scale(0.5)', opacity: '0' },
-                '50%': { transform: 'translate(-50%, -50%) scale(1.2)', opacity: '1' },
-                '100%': { transform: 'translate(-50%, -150%) scale(0.8)', opacity: '0' }
+                "0%": {
+                  transform: "translate(-50%, -50%) scale(0.5)",
+                  opacity: "0",
+                },
+                "50%": {
+                  transform: "translate(-50%, -50%) scale(1.2)",
+                  opacity: "1",
+                },
+                "100%": {
+                  transform: "translate(-50%, -150%) scale(0.8)",
+                  opacity: "0",
+                },
               },
               shake: {
-                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
-                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
-                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
-                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
-              }
-            }
+                "10%, 90%": { transform: "translate3d(-1px, 0, 0)" },
+                "20%, 80%": { transform: "translate3d(2px, 0, 0)" },
+                "30%, 50%, 70%": { transform: "translate3d(-4px, 0, 0)" },
+                "40%, 60%": { transform: "translate3d(4px, 0, 0)" },
+              },
+            },
           },
         },
-      }
+      };
     </script>
+
     <style>
-      /* Custom scrollbar for kids app */
+      /* 滚动条样式 */
       ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -72,19 +86,17 @@
       }
       body {
         overscroll-behavior: none;
-        background-color: #eff6ff; /* Blue-50 */
+        background-color: #eff6ff;
         -webkit-tap-highlight-color: transparent;
-        /* Safe area padding for iPhones */
-        padding-bottom: env(safe-area-inset-bottom); 
+        padding-bottom: env(safe-area-inset-bottom);
       }
       .scrollbar-hide::-webkit-scrollbar {
-          display: none;
+        display: none;
       }
       .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
-      /* Perspective for card flip */
       .perspective-1000 {
         perspective: 1000px;
       }
@@ -97,25 +109,17 @@
       .rotate-y-180 {
         transform: rotateY(180deg);
       }
-      /* Utility for full height taking address bar into account */
       .h-dvh {
         height: 100dvh;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "canvas-confetti": "https://aistudiocdn.com/canvas-confetti@^1.9.4"
-  }
-}
-</script>
-</head>
+  </head>
+
   <body>
+    <!-- 這裡就是 React 要掛載的節點 -->
     <div id="root"></div>
+
+    <!-- 關鍵：讓 Vite 從這裡載入你的 React 程式入口 -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
